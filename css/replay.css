@@ -1,0 +1,40 @@
+.replay {
+  float: left;
+  margin-top: 3%;
+  margin-left: 28%;
+  margin-bottom: 3%;
+  width: 65%;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.replay-list > li {
+  float: left;
+  font-size: 16px;
+}
+
+.replay-list > li:first-child { 
+  float: left;
+  width: 8%;
+  font-size: 16px;
+}
+
+.replay-content {
+  width: 100%;
+  float: left;
+  font-size: 14px;
+  margin-top: 15px;
+  word-wrap: break-word;
+}
+
+.replay-time {
+  float: left;
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.replay-icon {
+  float: left;
+  margin-right: 10px;
+  font-size: 16px;
+}
