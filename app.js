@@ -5,8 +5,6 @@ var Provider = require('react-redux').Provider;
 var connect  = require('react-redux').connect;
 var reducers = require('./reducers.js');
 var actions  = require('./actions.js');
-var Form     = require('./js/form.js');
-var ListTab  = require('./js/listTab.js');
 var App      = require('./js/container.js');
 
 var store = Redux.createStore(reducers);

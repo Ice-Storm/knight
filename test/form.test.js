@@ -23,9 +23,14 @@ describe('Form component test', function () {
         judgeSubmit = { function(){} } />
     );
     
+    var email = '523003801@qq.com';
+    var content = 'test';
+  
     //表单提交前input的value等于state，获得数据
-    form.state('email').should.equal(form.find('#email').text());
-    form.state('content').should.equal(form.find('#content').text());
+    form.find('input').at(0).simulate('change', { target: { value: email } });
+    form.find('textarea').simulate('change', { target: { value: content } });
+    form.state('email').should.equal(email);
+    form.state('content').should.equal(content);
     
     //模拟表单提交，清空state
     var submit = form.find('.button').at(0);

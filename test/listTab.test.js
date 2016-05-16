@@ -20,10 +20,11 @@ describe("ListTab component test", function () {
         getReplayId = { function() {} } />
     );
     
+    //测试listTab获得数据是否可以生成子组件
     var childDivLen = listTab.find('div').length;
     
     listTab.setState({ childRepData: [listTabData] });
-    
+
     listTab.find('div').length.should.equal(childDivLen + 3);
   });
 }) 

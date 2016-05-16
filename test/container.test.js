@@ -23,6 +23,7 @@ describe("container component test", function () {
         addMessage = { actions.addMessage }
         addMessageReplay = { actions.addMessageReplay } />
     );
+    
     //测试container組件获得数据以后生成子组件
     var childDivLen = app.find('div').length;
     app.setState({

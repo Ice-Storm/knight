@@ -35,12 +35,20 @@ module.exports = React.createClass({
 
     //点击回复以后页面回到顶部留言表单 缓动
     var timer = setInterval(function () {
-      var scrollTop = document.body.scrollTop;
+      //处理FireFox和Chrome兼容性问题
+      var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
       var speed = scrollTop / 13;
       speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-      document.body.scrollTop > 0
-        ? document.body.scrollTop -= speed
-        : clearInterval(timer);
+      if (document.body.scrollTop) {
+        document.body.scrollTop > 0
+          ? document.body.scrollTop -= speed
+          : clearInterval(timer);
+      } else {
+        document.documentElement.scrollTop > 0
+          ? document.documentElement.scrollTop -= speed
+          : clearInterval(timer);
+      }
+      
     }, 35);
 
   },
@@ -50,12 +58,14 @@ module.exports = React.createClass({
     _this.getChildData();
 
     var ReplayComponent = _this.state.childRepData.map(function (value, index) {
-      return (
-        <Replay
-          key = { index }
-          parentEmail = { _this.props.data.doc.email }
-          data = { _this.state.childRepData[index]} />
-      );
+      if (_this.props.data.doc.email) {
+        return (
+          <Replay
+            key = { index }
+            parentEmail = { _this.props.data.doc.email }
+            data = { _this.state.childRepData[index]} />
+        );
+      }
     })
 
     return (
