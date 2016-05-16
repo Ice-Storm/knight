@@ -3,8 +3,6 @@ var enzyme   = require('enzyme');
 var App      = require('../js/container.js');
 var reducers = require('../reducers.js');
 var actions  = require('../actions.js');
-var db       = require('../model/db.js');
-var moment   = require('moment');
 
 describe("container component test", function () {
   
@@ -14,12 +12,9 @@ describe("container component test", function () {
         addMessage = { actions.addMessage }
         addMessageReplay = { actions.addMessageReplay } />
     );
-    
-    var dataLen = app.state('replayList').length;
 
     app.setState({ isSubmit: 1 });
     app.state('replayList').should.to.be.an('array');
-
   })
   
   it('when container get data container\'s child should add one', function () {
