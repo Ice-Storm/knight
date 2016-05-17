@@ -5,6 +5,7 @@ var actions  = require('../actions.js');
 var ListTab  = require('../js/listTab.js');
 
 describe("ListTab component test", function () {
+
   it('ListTab\'s child should add one', function () {
     var listTabData = {
       doc: {
@@ -13,7 +14,6 @@ describe("ListTab component test", function () {
         content: 'test'
       }
     }
-    
     var listTab = enzyme.mount( 
       <ListTab 
         data = { listTabData }

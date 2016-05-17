@@ -12,7 +12,10 @@ module.exports = React.createClass({
     getReplayId: React.PropTypes.func.isRequired
   },
   getInitialState: function () {
-    return { childRepData: [] };       //留言回复的数据
+    return { 
+      childRepData: [],  //留言回复的数据
+      scrollSpeed: 13
+    };       
   },
   getChildData: function () {
     var _this = this;
@@ -37,7 +40,7 @@ module.exports = React.createClass({
     var timer = setInterval(function () {
       //处理FireFox和Chrome兼容性问题
       var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-      var speed = scrollTop / 13;
+      var speed = scrollTop / this.state.scrollSpeed;
       speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
       if (document.body.scrollTop) {
         document.body.scrollTop > 0
@@ -48,9 +51,7 @@ module.exports = React.createClass({
           ? document.documentElement.scrollTop -= speed
           : clearInterval(timer);
       }
-      
-    }, 35);
-
+    }.bind(this), 35);
   },
   render: function () {
     var _this = this;
