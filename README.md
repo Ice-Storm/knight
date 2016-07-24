@@ -1,9 +1,8 @@
 Knight
 =====
-知道创业实习生面试的考核Demo
-基于React + redux + pouchDB + mocha
-一个简易留言板  
-  
+知道创业实习生面试的考核Demo，一个简易留言板。  
+
+* 基于React + redux + pouchDB + mocha  
 * 一键打包，一键测试  
 
 ### 部署
